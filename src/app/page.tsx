@@ -1,15 +1,18 @@
 'use client'
 import React from 'react';
 import './style.css';
+import HeroBanner from '@/components/HeroBanner';
+import TopRatedMoviesComponent from '@/components/TopRatedMoviesComponent';
+import UpcomingMoviesComponent from '@/components/UpcomingMoviesComponent';
+import PopularMoviesComponent from '@/components/PopularMoviesComponent';
 
 const HomePage: React.FC = () => {
     return (
         <>
-             <div className='home_banner'>
-                <h1>Bienvenue sur notre site de films !</h1>
-                <p>Découvrez notre collection de films :</p>
-            </div>
-            
+            <HeroBanner></HeroBanner>
+            <TopRatedMoviesComponent></TopRatedMoviesComponent>
+            <UpcomingMoviesComponent></UpcomingMoviesComponent>
+            <PopularMoviesComponent></PopularMoviesComponent>
         </>
     );
 }

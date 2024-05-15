@@ -1,15 +1,24 @@
-.home_banner{
+.home_banner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; 
     background-image: url(../../public/neon_banner.jpeg);
     background-size: cover;
     width: 100vw;
     height: 400px;
     background-position: bottom;
     color: white;
+    position: relative;
 }
 
-.home_banner p, h1{
-    padding-top: 20px;
+.text_overlay {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.home_banner p, h1 {
+    margin: 0; 
 }

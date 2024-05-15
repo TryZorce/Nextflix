@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.slick-prev{
+    right: 90% !important;
+    left: unset !important;
+    z-index: 50 !important;
+}
+.slick-next {
+    left: 90% !important;
+    z-index: 50 !important;
+
+  }
+
 .movie-card {
     display: flex !important;
     align-items: center;
@@ -21,3 +32,12 @@
     display: flex;
     width: 200px !important;
 }
+
+.slick-prev:before, .slick-next:before {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: black;
+    border: 1px solid black !important;
+    border-radius: 50% !important;
+  }
+  

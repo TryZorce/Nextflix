@@ -1,19 +1,12 @@
 import React from 'react';
 
-interface HeroBannerProps {
-    movie: Movie;
-}
-
-interface Movie {
-    // détails du film
-}
-
-const HeroBanner: React.FC<HeroBannerProps> = ({ movie }) => {
-    return (
-        <div className="hero-banner">
-            {/* Contenu du banner avec le film le plus populaire */}
+function HeroBanner() {
+    return (<div className='home_banner'>
+        <div className='text_overlay'>
+            <h1>Bienvenue sur notre site de films !</h1>
+            <p>Découvrez notre collection de films :</p>
         </div>
-    );
+    </div>);
 }
 
 export default HeroBanner;

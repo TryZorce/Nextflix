@@ -71,3 +71,21 @@ export const getMovieDetails = async (id: string) => {
     throw new Error('Error fetching movie details: ' + error.message);
   }
 };
+
+export const searchMovies = async (query: string) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${api_key}`
+    }
+  };
+
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=fr-FR&page=1`, options);
+    const data = await response.json();
+    return data;
+  } catch (error:any) {
+    throw new Error('Error searching movies: ' + error.message);
+  }
+};
