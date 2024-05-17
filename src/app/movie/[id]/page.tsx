@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { getMovieDetails } from '@/lib/api_request';
+import defaultImage from "../../../../public/defaut.jpg";
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -39,7 +40,7 @@ const MovieDetail = () => {
                     <h2 className="text-3xl font-bold mb-4">{movieDetails.title}</h2>
                     <div className="mb-4">
                         <Image
-                            src={`https://www.themoviedb.org/t/p/original/${movieDetails.poster_path}`}
+                            src={movieDetails.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
                             alt={movieDetails.title}
                             width={200}
                             height={300}

@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { searchMovies } from '@/lib/api_request';
 import Image from 'next/image';
 import SearchBar from '@/components/SearchBar';
+import defaultImage from "../../../../public/defaut.jpg";
 
 const SearchPage = () => {
     const { query } = useParams();
@@ -33,8 +34,8 @@ const SearchPage = () => {
                             <h2>{movie.title}</h2>
                             <p>{movie.overview}</p>
                             <Image
-                                src={`https://www.themoviedb.org/t/p/original/${movie.poster_path}`}
-                                alt={movie.title}
+                            src={movie.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
+                            alt={movie.title}
                                 width={200}
                                 height={400}
                             />

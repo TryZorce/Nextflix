@@ -4,12 +4,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Link from 'next/link';
-import './movieCarousel.css'
+import defaultImage from '../../public/defaut.jpg';
 
 interface Movie {
   id: number;
   title: string;
-  poster_path: string;
+  poster_path: string | null;
 }
 
 interface MovieCarouselProps {
@@ -56,18 +56,16 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
       <Slider {...settings}>
         {movies.map((movie: Movie) => (
           <div key={movie.id} className="movie-card">
-            {movie.poster_path && (
-              <div className="poster-container">
-                <Link href={`/movie/${movie.id}`}>
-                  <Image
-                    src={`https://www.themoviedb.org/t/p/original/${movie.poster_path}`}
-                    alt={movie.title}
-                    width={200}
-                    height={400}
-                  />
-                </Link>
-              </div>
-            )}
+            <div className="poster-container">
+              <Link href={`/movie/${movie.id}`}>
+                <Image
+                  src={movie.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
+                  alt={movie.title}
+                  width={200}
+                  height={400}
+                />
+              </Link>
+            </div>
             <p>{movie.title}</p>
           </div>
         ))}

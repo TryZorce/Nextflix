@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getPopularMovies } from '../lib/api_request';
 import Image from 'next/image';
 import Link from 'next/link';
+import defaultImage from '../../public/defaut.jpg';
 
 const PopularMovieList: React.FC = () => {
   const [topMovies, setTopMovies] = useState<any[]>([]);
@@ -28,7 +29,7 @@ const PopularMovieList: React.FC = () => {
           <div key={movie.id} className='movie_item bg-white border border-gray-200 rounded-lg p-4 text-center shadow'>
             <Link href={`/movie/${movie.id}`}>
               <Image
-                src={`https://www.themoviedb.org/t/p/original/${movie.poster_path}`}
+                src={movie.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
                 alt={movie.title}
                 className='w-full h-auto rounded-lg mb-4'
                 height={200}

@@ -1,12 +1,8 @@
-"use client";
-import React, { useEffect, useState } from 'react';
-import TopRatedMoviesList from '@/components/TopRatedMoviesList';
+import React from 'react';
+import Favorites from '@/components/Favorites';
 
-const MovieDetail = () => {
-
-    return (
-        <TopRatedMoviesList></TopRatedMoviesList>
-    );
+const FavoritesPage = () => {
+    return <Favorites />;
 };
 
-export default MovieDetail;
+export default FavoritesPage;
