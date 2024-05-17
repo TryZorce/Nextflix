@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { searchMovies } from '@/lib/api_request';
@@ -12,8 +12,9 @@ const SearchPage = () => {
     useEffect(() => {
         const fetchSearchPage = async () => {
             try {
-                const data = await searchMovies(query);
-                setSearchResults(data.results); // Mettez à jour les résultats de la recherche
+                const queryString = Array.isArray(query) ? query.join(',') : query;
+                const data = await searchMovies(queryString);
+                setSearchResults(data.results); 
             } catch (error) {
                 console.error(error);
             }
@@ -24,7 +25,6 @@ const SearchPage = () => {
 
     return (
         <div>
-            <SearchBar></SearchBar>
             <h1>Résultats de la recherche pour &quot;{query}&quot;</h1>
             {searchResults.length > 0 ? (
                 <div>
@@ -33,11 +33,11 @@ const SearchPage = () => {
                             <h2>{movie.title}</h2>
                             <p>{movie.overview}</p>
                             <Image
-                        src={`https://www.themoviedb.org/t/p/original/${movie.poster_path}`}
-                        alt={movie.title}
-                        width={200}
-                        height={400}
-                    />
+                                src={`https://www.themoviedb.org/t/p/original/${movie.poster_path}`}
+                                alt={movie.title}
+                                width={200}
+                                height={400}
+                            />
                         </div>
                     ))}
                 </div>

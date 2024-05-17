@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .slick-prev{
     right: 90% !important;
     left: unset !important;

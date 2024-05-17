@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import Navbar from '../components/Navbar';
 import './globals.css';
+import SearchBar from '@/components/SearchBar';
 
 export const metadata = {
   title: 'Nextflix',
@@ -20,6 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
       </head>
       <body>
         <Navbar />
+        <SearchBar></SearchBar>
         <main>{children}</main>
       </body>
     </html>
