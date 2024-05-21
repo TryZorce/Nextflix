@@ -40,7 +40,7 @@ const MovieDetail = () => {
                     <h2 className="text-3xl font-bold mb-4">{movieDetails.title}</h2>
                     <div className="mb-4">
                         <Image
-                            src={movieDetails.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
+                            src={movieDetails.poster_path ? `https://www.themoviedb.org/t/p/original/${movieDetails.poster_path}` : defaultImage}
                             alt={movieDetails.title}
                             width={200}
                             height={300}
