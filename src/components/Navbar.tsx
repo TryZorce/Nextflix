@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <header className="bg-gray-800 w-full top-0 z-50">
+        <header className="bg-gray-800 w-full top-0 z-50 ">
             <div className="container mx-auto px-4 flex justify-between items-center py-4">
                 <div className="text-white text-2xl font-bold">
                     <Link href="/">
@@ -21,27 +21,27 @@ const Navbar: React.FC = () => {
                     <ul className="flex flex-col md:flex-row md:space-x-4 absolute md:relative bg-gray-800 md:bg-transparent w-full md:w-auto top-16 md:top-0 right-0 md:right-auto text-center md:text-left z-10">
                         <li className="border-b md:border-b-0 border-gray-700 md:border-transparent py-2 md:py-0">
                             <Link href="/">
-                                <p className="text-white hover:text-gray-300 cursor-pointer">Accueil</p>
+                                <p className="text-white hover: cursor-pointer">Accueil</p>
                             </Link>
                         </li>
                         <li className="border-b md:border-b-0 border-gray-700 md:border-transparent py-2 md:py-0">
                             <Link href="/popular">
-                                <p className="text-white hover:text-gray-300 cursor-pointer">Populaires</p>
+                                <p className="text-white hover: cursor-pointer">Populaires</p>
                             </Link>
                         </li>
                         <li className="border-b md:border-b-0 border-gray-700 md:border-transparent py-2 md:py-0">
                             <Link href="/top-rated">
-                                <p className="text-white hover:text-gray-300 cursor-pointer">Mieux Notés</p>
+                                <p className="text-white hover: cursor-pointer">Mieux Notés</p>
                             </Link>
                         </li>
                         <li className="border-b md:border-b-0 border-gray-700 md:border-transparent py-2 md:py-0">
                             <Link href="/upcoming">
-                                <p className="text-white hover:text-gray-300 cursor-pointer">Prochaines Sorties</p>
+                                <p className="text-white hover: cursor-pointer">Prochaines Sorties</p>
                             </Link>
                         </li>
                         <li className="border-b md:border-b-0 border-gray-700 md:border-transparent py-2 md:py-0 ">
                             <Link href="/favorites">
-                                <p className="text-white hover:text-gray-300 cursor-pointer">Favoris</p>
+                                <p className="text-white hover: cursor-pointer">Favoris</p>
                             </Link>
                         </li>
                     </ul>

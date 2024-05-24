@@ -8,12 +8,15 @@ import defaultImage from "../../../../public/defaut.jpg";
 const MovieDetail = () => {
     const { id } = useParams();
     const [movieDetails, setMovieDetails] = useState<any>(null);
+    const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
         const fetchMovieDetails = async () => {
             try {
                 const data = await getMovieDetails(id);
                 setMovieDetails(data);
+                const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                setIsFavorite(favorites.includes(id));
             } catch (error) {
                 console.error(error);
             }
@@ -27,10 +30,17 @@ const MovieDetail = () => {
         if (!favorites.includes(id)) {
             favorites.push(id);
             localStorage.setItem('favorites', JSON.stringify(favorites));
+            setIsFavorite(true);
             alert('Film ajouté aux favoris !');
-        } else {
-            alert('Ce film est déjà dans vos favoris.');
         }
+    };
+
+    const handleRemoveFromFavorites = () => {
+        let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        favorites = favorites.filter((favoriteId: string) => favoriteId !== id);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        setIsFavorite(false);
+        alert('Film supprimé des favoris.');
     };
 
     return (
@@ -47,20 +57,29 @@ const MovieDetail = () => {
                             className="rounded-lg"
                         />
                     </div>
-                    <p className="text-gray-700 mb-4">{movieDetails.overview}</p>
+                    <p className="mb-4">{movieDetails.overview}</p>
                     <div className="mb-4">
-                        <p className="text-gray-700 mb-2">Note: {movieDetails.vote_average}</p>
-                        <p className="text-gray-700 mb-2">Date de sortie: {movieDetails.release_date}</p>
-                        <p className="text-gray-700 mb-2">Langue originale: {movieDetails.original_language}</p>
-                        <p className="text-gray-700 mb-2">Durée: {movieDetails.runtime} minutes</p>
-                        <p className="text-gray-700 mb-2">Genres: {movieDetails.genres.map((genre: any) => genre.name).join(', ')}</p>
+                        <p className=" mb-2">Note: {movieDetails.vote_average}</p>
+                        <p className=" mb-2">Date de sortie: {movieDetails.release_date}</p>
+                        <p className=" mb-2">Langue originale: {movieDetails.original_language}</p>
+                        <p className=" mb-2">Durée: {movieDetails.runtime} minutes</p>
+                        <p className=" mb-2">Genres: {movieDetails.genres.map((genre: any) => genre.name).join(', ')}</p>
                     </div>
-                    <button
-                        onClick={handleAddToFavorites}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    >
-                        Ajouter aux favoris
-                    </button>
+                    {isFavorite ? (
+                        <button
+                            onClick={handleRemoveFromFavorites}
+                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                        >
+                            Supprimer des favoris
+                        </button>
+                    ) : (
+                        <button
+                            onClick={handleAddToFavorites}
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        >
+                            Ajouter aux favoris
+                        </button>
+                    )}
                 </div>
             ) : (
                 <p className="text-center">Chargement...</p>

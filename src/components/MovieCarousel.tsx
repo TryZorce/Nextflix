@@ -25,7 +25,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
     arrows: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1440,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -52,21 +52,22 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({ movies }) => {
   };
 
   return (
-    <div className="movie-carousel">
+    <div className="movie-carousel mx-auto py-8">
       <Slider {...settings}>
         {movies.map((movie: Movie) => (
-          <div key={movie.id} className="movie-card">
-            <div className="poster-container">
+          <div key={movie.id} className="movie-card p-2">
+            <div className="poster-container overflow-hidden rounded-lg shadow-lg">
               <Link href={`/movie/${movie.id}`}>
                 <Image
                   src={movie.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
                   alt={movie.title}
                   width={200}
                   height={400}
+                  className="object-cover transition-transform duration-300 hover:scale-105"
                 />
               </Link>
             </div>
-            <p>{movie.title}</p>
+            <p className="mt-2 text-center text-lg font-semibold">{movie.title}</p>
           </div>
         ))}
       </Slider>

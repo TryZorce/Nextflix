@@ -20,9 +20,9 @@ const UpcomingMoviesComponent: React.FC = () => {
   }, []);
 
   return (
-    <div className='home_upcoming'>
-      <h1>Prochain Film</h1>
-      <MovieCarousel movies={upcomingMovies}/>
+    <div className='home_upcoming container mx-auto p-4'>
+      <h1 className='text-2xl font-bold mb-4'>Prochains Films</h1>
+      <MovieCarousel movies={upcomingMovies} />
     </div>
   );
 };

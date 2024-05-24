@@ -11,7 +11,7 @@ const TopRatedMoviesComponent: React.FC = () => {
       try {
         const data = await getTopMovies();
         setTopMovies(data.results);
-      } catch (error:any) {
+      } catch (error: any) {
         console.error('Error fetching top-rated movies:', error.message);
       }
     };
@@ -20,9 +20,9 @@ const TopRatedMoviesComponent: React.FC = () => {
   }, []);
 
   return (
-    <div className='home_toprated'>
-      <h1>Film les mieux notés</h1>
-      <MovieCarousel movies={topMovies}/>
+    <div className='home_toprated container mx-auto p-4'>
+      <h1 className='text-2xl font-bold mb-4'>Films les mieux notés</h1>
+      <MovieCarousel movies={topMovies} />
     </div>
   );
 };

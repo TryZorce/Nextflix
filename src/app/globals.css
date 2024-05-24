@@ -2,17 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    background-color: #1F2937;
+}
 
-.slick-prev{
-    right: 90% !important;
+h1 , p , h2, h3 {
+    color: rgb(221, 221, 221);
+}
+.slick-prev {
+    right: 95% !important;
     left: unset !important;
     z-index: 50 !important;
 }
+
 .slick-next {
-    left: 90% !important;
+    left: 95% !important;
     z-index: 50 !important;
 
-  }
+}
 
 .movie-card {
     display: flex !important;
@@ -20,7 +27,8 @@
     justify-content: center;
     flex-direction: column;
 }
-.movie-card p{
+
+.movie-card p {
     width: 200px;
 }
 
@@ -34,11 +42,19 @@
     width: 200px !important;
 }
 
-.slick-prev:before, .slick-next:before {
+.slick-prev:before,
+.slick-next:before {
     width: 40px !important;
     height: 40px !important;
     background-color: black;
     border: 1px solid black !important;
     border-radius: 50% !important;
-  }
-  
+}
+@media (min-width: 700px) {
+    .slick-prev {
+        right: 100% !important; 
+    }
+    .slick-next {
+        left: 100% !important;
+    }
+}

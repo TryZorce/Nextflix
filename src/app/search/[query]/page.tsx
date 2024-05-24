@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { searchMovies } from '@/lib/api_request';
 import Image from 'next/image';
-import SearchBar from '@/components/SearchBar';
 import defaultImage from "../../../../public/defaut.jpg";
+import Link from 'next/link';
 
 const SearchPage = () => {
     const { query } = useParams();
@@ -31,14 +31,16 @@ const SearchPage = () => {
                 <div>
                     {searchResults.map((movie: any) => (
                         <div key={movie.id}>
-                            <h2>{movie.title}</h2>
+                            <p>{movie.title}</p>
                             <p>{movie.overview}</p>
+                            <Link href={`/movie/${movie.id}`}>
                             <Image
                             src={movie.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
                             alt={movie.title}
                                 width={200}
                                 height={400}
                             />
+                            </Link>
                         </div>
                     ))}
                 </div>

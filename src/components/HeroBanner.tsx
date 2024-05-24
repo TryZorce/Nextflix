@@ -25,7 +25,7 @@ function HeroBanner() {
     return (
         <div
             className='home_banner'
-            style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            style={{ backgroundImage: `url(${backgroundImage})`}}
         >
             <div className='text_overlay'>
                 <h1>Bienvenue sur notre site de films !</h1>

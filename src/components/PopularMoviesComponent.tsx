@@ -11,7 +11,7 @@ const PopularMoviesComponent: React.FC = () => {
       try {
         const data = await getPopularMovies();
         setPopularMovies(data.results);
-      } catch (error:any) {
+      } catch (error: any) {
         console.error('Error fetching popular movies:', error.message);
       }
     };
@@ -20,9 +20,9 @@ const PopularMoviesComponent: React.FC = () => {
   }, []);
 
   return (
-    <div className='home_popular'>
-      <h1>Film Populaire</h1>
-      <MovieCarousel movies={popularMovies}/>
+    <div className='home_popular container mx-auto p-4'>
+      <h1 className='text-2xl font-bold mb-4'>Films Populaires</h1>
+      <MovieCarousel movies={popularMovies} />
     </div>
   );
 };

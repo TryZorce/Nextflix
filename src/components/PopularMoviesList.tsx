@@ -26,7 +26,7 @@ const PopularMovieList: React.FC = () => {
       <h1 className='text-3xl font-bold mb-6'>Films les Populaires</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
         {topMovies.map(movie => (
-          <div key={movie.id} className='movie_item bg-white border border-gray-200 rounded-lg p-4 text-center shadow'>
+          <div key={movie.id} className='movie_item border-2 border-gray-900 border-solid rounded-lg p-4 text-center shadow'>
             <Link href={`/movie/${movie.id}`}>
               <Image
                 src={movie.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
@@ -36,7 +36,7 @@ const PopularMovieList: React.FC = () => {
                 width={400}
               />
               <h2 className='text-xl font-semibold mb-2'>{movie.title}</h2>
-              <p className='text-gray-600'>Note: {movie.vote_average}</p>
+              <p className=''>Note: {movie.vote_average}</p>
             </Link>
           </div>
         ))}

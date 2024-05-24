@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { getMovieDetails } from '@/lib/api_request';
 import defaultImage from '../../public/defaut.jpg';
+import Link from 'next/link';
 
 const Favorites = () => {
     const [favoriteMovies, setFavoriteMovies] = useState<any[]>([]);
@@ -24,7 +25,8 @@ const Favorites = () => {
             {favoriteMovies.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {favoriteMovies.map((movie) => (
-                        <div key={movie.id} className="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+                        <div key={movie.id} className="max-w-sm mx-auto rounded-lg overflow-hidden border-2 border-gray-900 border-solid">
+                             <Link href={`/movie/${movie.id}`}>
                             <Image
                                 src={movie.poster_path ? `https://www.themoviedb.org/t/p/original/${movie.poster_path}` : defaultImage}
                                 alt={movie.title}
@@ -34,10 +36,11 @@ const Favorites = () => {
                             />
                             <div className="p-4">
                                 <h3 className="text-xl font-bold">{movie.title}</h3>
-                                <p className="text-gray-700">{movie.overview}</p>
-                                <p className="text-gray-700 mt-2">Note: {movie.vote_average}</p>
-                                <p className="text-gray-700">Date de sortie: {movie.release_date}</p>
+                                <p className="">{movie.overview}</p>
+                                <p className=" mt-2">Note: {movie.vote_average}</p>
+                                <p className="">Date de sortie: {movie.release_date}</p>
                             </div>
+                            </Link>
                         </div>
                     ))}
                 </div>
